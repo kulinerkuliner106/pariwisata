@@ -1,0 +1,2574 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Jelajah Wisata Indonesia - Temukan berbagai destinasi wisata alam, pantai, gunung, air terjun, budaya dan wisata keluarga di Indonesia.">
+    <meta name="keywords" content="wisata Indonesia, wisata alam, travel, Tegal, Jawa Tengah, wisata pantai, wisata gunung">
+    <meta name="author" content="Rayhan Satria">
+
+    <title>Jelajah Wisata Indonesia | Temukan Keindahan Indonesia</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f7fbf8;
+            color: #18352b;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 0;
+            transition: .3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, .96);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 5px 25px rgba(0,0,0,.08);
+            padding: 12px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .navbar.scrolled .logo {
+            color: #11734b;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #159957, #56b4d3);
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        .navbar.scrolled .nav-menu a {
+            color: #244b3c;
+        }
+
+        .nav-menu a:hover {
+            color: #6ee7b7;
+        }
+
+        .navbar.scrolled .nav-menu a:hover {
+            color: #159957;
+        }
+
+        .nav-cta {
+            background: #ff9f1c !important;
+            color: white !important;
+            padding: 11px 18px;
+            border-radius: 30px;
+            font-weight: 700 !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            color: white !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .navbar.scrolled .menu-toggle {
+            color: #18352b;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background:
+                linear-gradient(90deg, rgba(4, 38, 28, .82), rgba(4, 38, 28, .35)),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=90")
+                center/cover;
+            color: white;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, #f7fbf8);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            padding-top: 70px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border: 1px solid rgba(255,255,255,.3);
+            background: rgba(255,255,255,.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 1.08;
+            margin-bottom: 22px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #8df0bd;
+        }
+
+        .hero p {
+            max-width: 680px;
+            color: rgba(255,255,255,.88);
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 14px 23px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: #159957;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #117846;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(21,153,87,.3);
+        }
+
+        .btn-orange {
+            background: #ff9f1c;
+            color: white;
+        }
+
+        .btn-orange:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,159,28,.3);
+        }
+
+        .btn-outline {
+            background: rgba(255,255,255,.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,.5);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #18352b;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+        section {
+            padding: 90px 0;
+        }
+
+        .section-header {
+            max-width: 680px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .section-label {
+            color: #159957;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.2;
+            color: #123c2b;
+            margin-bottom: 14px;
+        }
+
+        .section-header p {
+            color: #6b7e75;
+        }
+
+        /* =========================
+           CATEGORY
+        ========================= */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+
+        .category-card {
+            background: white;
+            padding: 25px 15px;
+            text-align: center;
+            border-radius: 18px;
+            border: 1px solid #e5eee9;
+            transition: .3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(17,115,75,.12);
+            border-color: #a7dfc4;
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            border-radius: 18px;
+            background: #e9f8ef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #159957;
+            font-size: 25px;
+        }
+
+        .category-card h3 {
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .category-card p {
+            color: #718078;
+            font-size: 11px;
+        }
+
+        /* =========================
+           SEARCH
+        ========================= */
+        .search-box {
+            background: white;
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: 0 10px 35px rgba(0,0,0,.07);
+            margin-bottom: 35px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: 1px solid #dce8e2;
+            outline: none;
+            padding: 13px 16px;
+            border-radius: 10px;
+        }
+
+        .search-box input:focus {
+            border-color: #159957;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .filter-btn {
+            border: 1px solid #d8e5de;
+            background: white;
+            padding: 9px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: .3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #159957;
+            border-color: #159957;
+            color: white;
+        }
+
+        /* =========================
+           DESTINATIONS
+        ========================= */
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .destination-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #e5eee9;
+            transition: .35s;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0,0,0,.1);
+        }
+
+        .destination-image {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .destination-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .destination-tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            padding: 6px 10px;
+            border-radius: 20px;
+            background: rgba(255,255,255,.9);
+            font-size: 11px;
+            font-weight: 700;
+            color: #159957;
+        }
+
+        .destination-info {
+            padding: 20px;
+        }
+
+        .location {
+            color: #159957;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .destination-info h3 {
+            font-size: 19px;
+            margin-bottom: 7px;
+        }
+
+        .destination-info p {
+            font-size: 12px;
+            color: #738179;
+            margin-bottom: 15px;
+        }
+
+        .detail-btn {
+            color: #159957;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           JAWA TENGAH
+        ========================= */
+        .central-java {
+            background:
+                linear-gradient(90deg, rgba(5,48,34,.9), rgba(5,48,34,.55)),
+                url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+            color: white;
+        }
+
+        .central-java .section-header h2 {
+            color: white;
+        }
+
+        .central-java .section-header p {
+            color: rgba(255,255,255,.78);
+        }
+
+        .java-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 18px;
+        }
+
+        .java-card {
+            min-height: 300px;
+            border-radius: 22px;
+            overflow: hidden;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: end;
+            transition: .3s;
+        }
+
+        .java-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .java-card.large {
+            grid-row: span 2;
+            min-height: 618px;
+        }
+
+        .java-overlay {
+            width: 100%;
+            padding: 25px;
+            background: linear-gradient(transparent, rgba(0,0,0,.8));
+        }
+
+        .java-overlay h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .java-overlay p {
+            font-size: 12px;
+            opacity: .85;
+        }
+
+        /* =========================
+           PACKAGES
+        ========================= */
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .package-card {
+            background: white;
+            padding: 28px;
+            border-radius: 20px;
+            border: 1px solid #e2ece6;
+            position: relative;
+            transition: .3s;
+        }
+
+        .package-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 40px rgba(0,0,0,.08);
+        }
+
+        .package-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 16px;
+            background: #eaf8ef;
+            color: #159957;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            margin-bottom: 18px;
+        }
+
+        .package-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .package-card p {
+            color: #718078;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           WHY US
+        ========================= */
+        .why-us {
+            background: #eef8f2;
+        }
+
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .advantage {
+            background: white;
+            padding: 28px;
+            border-radius: 18px;
+            display: flex;
+            gap: 18px;
+            border: 1px solid #dfebe4;
+        }
+
+        .advantage-icon {
+            min-width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: #e7f7ed;
+            color: #159957;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .advantage h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .advantage p {
+            font-size: 12px;
+            color: #75817b;
+        }
+
+        /* =========================
+           GALLERY
+        ========================= */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 190px;
+            gap: 12px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 16px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-item:nth-child(1),
+        .gallery-item:nth-child(6) {
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(2) {
+            grid-column: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 18px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.15);
+        }
+
+        .about-badge strong {
+            display: block;
+            color: #159957;
+            font-size: 20px;
+        }
+
+        .about-text h2 {
+            font-family: "Montserrat";
+            font-size: 40px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #697971;
+            margin-bottom: 15px;
+        }
+
+        .owner-info {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            background: #f0f8f3;
+            border-left: 4px solid #159957;
+        }
+
+        .owner-info strong {
+            color: #123c2b;
+        }
+
+        /* =========================
+           TESTIMONIAL
+        ========================= */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .testimonial {
+            background: white;
+            border: 1px solid #e1ebe5;
+            padding: 28px;
+            border-radius: 20px;
+        }
+
+        .stars {
+            color: #ffb020;
+            margin-bottom: 15px;
+        }
+
+        .testimonial p {
+            color: #65736c;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .customer {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .customer small {
+            display: block;
+            color: #159957;
+            font-weight: 500;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(rgba(5,58,39,.8), rgba(5,58,39,.8)),
+                url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=90")
+                center/cover fixed;
+        }
+
+        .cta h2 {
+            font-family: "Montserrat";
+            font-size: clamp(32px, 5vw, 55px);
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            color: rgba(255,255,255,.85);
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: #123c2b;
+            color: white;
+            padding: 35px;
+            border-radius: 22px;
+        }
+
+        .contact-info h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info > p {
+            color: rgba(255,255,255,.7);
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8df0bd;
+        }
+
+        .contact-item div {
+            font-size: 13px;
+        }
+
+        .contact-item small {
+            display: block;
+            color: rgba(255,255,255,.55);
+            margin-bottom: 2px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 35px;
+            border-radius: 22px;
+            box-shadow: 0 10px 35px rgba(0,0,0,.06);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid #dce7e1;
+            border-radius: 10px;
+            padding: 12px 14px;
+            outline: none;
+            font-size: 13px;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #159957;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            background: #09271c;
+            color: white;
+            padding: 60px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 45px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,.6);
+            font-size: 13px;
+            max-width: 360px;
+            margin: 18px 0;
+        }
+
+        .socials {
+            display: flex;
+            gap: 9px;
+        }
+
+        .socials a {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,.08);
+            transition: .3s;
+        }
+
+        .socials a:hover {
+            background: #159957;
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            margin-bottom: 18px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a,
+        .footer-column p {
+            color: rgba(255,255,255,.6);
+            font-size: 13px;
+        }
+
+        .footer-column a:hover {
+            color: #8df0bd;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,.1);
+            padding-top: 20px;
+            text-align: center;
+            color: rgba(255,255,255,.45);
+            font-size: 12px;
+        }
+
+        /* =========================
+           WHATSAPP
+        ========================= */
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            z-index: 900;
+            box-shadow: 0 10px 25px rgba(0,0,0,.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%,100% {
+                box-shadow: 0 0 0 0 rgba(37,211,102,.4);
+            }
+            50% {
+                box-shadow: 0 0 0 13px rgba(37,211,102,0);
+            }
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0,0,0,.75);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            width: min(650px, 100%);
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            animation: modalIn .3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        .modal-body h2 {
+            margin-bottom: 10px;
+        }
+
+        .modal-body p {
+            color: #697970;
+            font-size: 14px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            width: 42px;
+            height: 42px;
+            border: none;
+            background: white;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           BACK TO TOP
+        ========================= */
+        .back-top {
+            position: fixed;
+            bottom: 90px;
+            right: 25px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            background: #123c2b;
+            color: white;
+            cursor: pointer;
+            display: none;
+            z-index: 800;
+        }
+
+        .back-top.show {
+            display: block;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media (max-width: 1050px) {
+            .categories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .destinations,
+            .packages {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 75px;
+                right: 4%;
+                width: 270px;
+                padding: 20px;
+                background: white;
+                border-radius: 18px;
+                box-shadow: 0 15px 40px rgba(0,0,0,.15);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                color: #18352b !important;
+            }
+
+            .nav-cta {
+                width: 100%;
+                text-align: center;
+            }
+
+            .java-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .java-card.large {
+                grid-row: auto;
+                min-height: 350px;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .advantages,
+            .testimonials {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .categories,
+            .destinations,
+            .packages,
+            .advantages,
+            .testimonials,
+            .java-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 150px;
+            }
+
+            .about-image img {
+                height: 380px;
+            }
+
+            .about-text h2 {
+                font-size: 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+<header class="navbar" id="navbar">
+    <div class="container nav-wrapper">
+
+        <a href="#beranda" class="logo">
+            <span class="logo-icon">
+                <i class="fa-solid fa-mountain-sun"></i>
+            </span>
+            Jelajah Wisata Indonesia
+        </a>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#destinasi">Destinasi</a></li>
+            <li><a href="#alam">Wisata Alam</a></li>
+            <li><a href="#populer">Wisata Populer</a></li>
+            <li><a href="#tentang">Tentang Kami</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+            <li>
+                <a class="nav-cta" target="_blank"
+                   href="https://wa.me/6285802882764?text=Halo%20Jelajah%20Wisata%20Indonesia,%20saya%20ingin%20bertanya%20tentang%20wisata.">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Hubungi Kami
+                </a>
+            </li>
+        </ul>
+
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+<section class="hero" id="beranda">
+    <div class="container">
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                <i class="fa-solid fa-location-dot"></i>
+                Jelajahi Pesona Indonesia
+            </div>
+
+            <h1>
+                Jelajahi Keindahan
+                <span>Indonesia</span>
+                Bersama Kami
+            </h1>
+
+            <p>
+                Temukan destinasi wisata alam, pantai, gunung,
+                air terjun, budaya, hingga wisata keluarga
+                terbaik di berbagai daerah Indonesia.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#destinasi" class="btn btn-primary">
+                    <i class="fa-solid fa-compass"></i>
+                    Jelajahi Destinasi
+                </a>
+
+                <a target="_blank"
+                   href="https://wa.me/6285802882764?text=Halo%20Rayhan,%20saya%20ingin%20mendapatkan%20informasi%20wisata."
+                   class="btn btn-orange">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Hubungi Kami
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================
+     CATEGORY
+========================= -->
+<section id="alam">
+    <div class="container">
+
+        <div class="section-header">
+            <div class="section-label">Kategori Wisata</div>
+            <h2>Temukan Jenis Wisata Favoritmu</h2>
+            <p>
+                Berbagai pilihan pengalaman wisata untuk menemani
+                perjalanan dan petualanganmu.
+            </p>
+        </div>
+
+        <div class="categories">
+
+            <div class="category-card" data-filter="gunung">
+                <div class="category-icon">
+                    <i class="fa-solid fa-mountain"></i>
+                </div>
+                <h3>Wisata Gunung</h3>
+                <p>Camping, hiking & sunrise</p>
+            </div>
+
+            <div class="category-card" data-filter="pantai">
+                <div class="category-icon">
+                    <i class="fa-solid fa-umbrella-beach"></i>
+                </div>
+                <h3>Wisata Pantai</h3>
+                <p>Sunset & keindahan laut</p>
+            </div>
+
+            <div class="category-card" data-filter="air">
+                <div class="category-icon">
+                    <i class="fa-solid fa-water"></i>
+                </div>
+                <h3>Air Terjun</h3>
+                <p>Sejuk & alami</p>
+            </div>
+
+            <div class="category-card" data-filter="alam">
+                <div class="category-icon">
+                    <i class="fa-solid fa-tree"></i>
+                </div>
+                <h3>Wisata Alam</h3>
+                <p>Hutan, bukit & lembah</p>
+            </div>
+
+            <div class="category-card" data-filter="budaya">
+                <div class="category-icon">
+                    <i class="fa-solid fa-landmark"></i>
+                </div>
+                <h3>Wisata Budaya</h3>
+                <p>Sejarah & tradisi</p>
+            </div>
+
+            <div class="category-card" data-filter="keluarga">
+                <div class="category-icon">
+                    <i class="fa-solid fa-people-group"></i>
+                </div>
+                <h3>Wisata Keluarga</h3>
+                <p>Seru untuk keluarga</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     DESTINATIONS
+========================= -->
+<section id="destinasi">
+    <div class="container">
+
+        <div class="section-header">
+            <div class="section-label">Destinasi</div>
+            <h2>Destinasi Wisata Populer</h2>
+            <p>
+                Cari dan temukan tempat menarik yang ingin kamu kunjungi.
+            </p>
+        </div>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari destinasi, contoh: Bromo, Bali, Dieng..."
+            >
+            <button class="btn btn-primary" onclick="searchDestination()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Cari
+            </button>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">Semua</button>
+            <button class="filter-btn" data-category="gunung">Gunung</button>
+            <button class="filter-btn" data-category="pantai">Pantai</button>
+            <button class="filter-btn" data-category="alam">Alam</button>
+            <button class="filter-btn" data-category="budaya">Budaya</button>
+        </div>
+
+        <div class="destinations" id="destinationGrid">
+
+            <article class="destination-card" data-category="gunung" data-name="bromo">
+                <div class="destination-image">
+                    <img src="https://images.unsplash.com/photo-1604846887565-6404e9d7d4e9?auto=format&fit=crop&w=900&q=85" alt="Gunung Bromo">
+                    <span class="destination-tag">Gunung</span>
+                </div>
+                <div class="destination-info">
+                    <div class="location">
+                        <i class="fa-solid fa-location-dot"></i> Jawa Timur
+                    </div>
+                    <h3>Gunung Bromo</h3>
+                    <p>Gunung ikonik dengan panorama sunrise dan lautan pasir.</p>
+                    <span class="detail-btn"
+                          onclick="openModal('Gunung Bromo','Jawa Timur','https://images.unsplash.com/photo-1604846887565-6404e9d7d4e9?auto=format&fit=crop&w=1200&q=90','Nikmati keindahan Gunung Bromo dengan panorama matahari terbit yang memukau.')">
+                        Lihat Detail →
+                    </span>
+                </div>
+            </article>
+
+            <article class="destination-card" data-category="alam" data-name="dieng">
+                <div class="destination-image">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=85" alt="Dieng">
+                    <span class="destination-tag">Alam</span>
+                </div>
+                <div class="destination-info">
+                    <div class="location">
+                        <i class="fa-solid fa-location-dot"></i> Jawa Tengah
+                    </div>
+                    <h3>Dieng</h3>
+                    <p>Dataran tinggi dengan udara sejuk dan pemandangan menawan.</p>
+                    <span class="detail-btn"
+                          onclick="openModal('Dieng','Jawa Tengah','https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=90','Jelajahi dataran tinggi Dieng dengan udara sejuk dan panorama alam yang indah.')">
+                        Lihat Detail →
+                    </span>
+                </div>
+            </article>
+
+            <article class="destination-card" data-category="pantai" data-name="raja ampat">
+                <div class="destination-image">
+                    <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=900&q=85" alt="Raja Ampat">
+                    <span class="destination-tag">Pantai</span>
+                </div>
+                <div class="destination-info">
+                    <div class="location">
+                        <i class="fa-solid fa-location-dot"></i> Papua Barat
+                    </div>
+                    <h3>Raja Ampat</h3>
+                    <p>Surga tropis dengan laut jernih dan kepulauan eksotis.</p>
+                    <span class="detail-btn"
+                          onclick="openModal('Raja Ampat','Papua Barat','https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=1200&q=90','Nikmati keindahan laut tropis dan pulau-pulau eksotis Raja Ampat.')">
+                        Lihat Detail →
+                    </span>
+                </div>
+            </article>
+
+            <article class="destination-card" data-category="pantai" data-name="bali">
+                <div class="destination-image">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=85" alt="Bali">
+                    <span class="destination-tag">Pantai</span>
+                </div>
+                <div class="destination-info">
+                    <div class="location">
+                        <i class="fa-solid fa-location-dot"></i> Bali
+                    </div>
+                    <h3>Bali</h3>
+                    <p>Pantai, budaya, kuliner dan berbagai aktivitas menarik.</p>
+                    <span class="detail-btn"
+                          onclick="openModal('Bali','Bali, Indonesia','https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=90','Temukan berbagai pengalaman wisata menarik mulai dari pantai hingga budaya Bali.')">
+                        Lihat Detail →
+                    </span>
+                </div>
+            </article>
+
+            <article class="destination-card" data-category="alam" data-name="labuan bajo">
+                <div class="destination-image">
+                    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85" alt="Labuan Bajo">
+                    <span class="destination-tag">Alam</span>
+                </div>
+                <div class="destination-info">
+                    <div class="location">
+                        <i class="fa-solid fa-location-dot"></i> Nusa Tenggara Timur
+                    </div>
+                    <h3>Labuan Bajo</h3>
+                    <p>Destinasi bahari dengan pulau dan panorama spektakuler.</p>
+                    <span class="detail-btn"
+                          onclick="openModal('Labuan Bajo','Nusa Tenggara Timur','https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=90','Jelajahi pesona Labuan Bajo dan keindahan destinasi baharinya.')">
+                        Lihat Detail →
+                    </span>
+                </div>
+            </article>
+
+            <article class="destination-card" data-category="budaya" data-name="yogyakarta">
+                <div class="destination-image">
+                    <img src="https://images.unsplash.com/photo-1584810359583-96e523c5a3c7?auto=format&fit=crop&w=900&q=85" alt="Yogyakarta">
+                    <span class="destination-tag">Budaya</span>
+                </div>
+                <div class="destination-info">
+                    <div class="location">
+                        <i class="fa-solid fa-location-dot"></i> Yogyakarta
+                    </div>
+                    <h3>Yogyakarta</h3>
+                    <p>Kota budaya dengan sejarah, kuliner dan destinasi unik.</p>
+                    <span class="detail-btn"
+                          onclick="openModal('Yogyakarta','Daerah Istimewa Yogyakarta','https://images.unsplash.com/photo-1584810359583-96e523c5a3c7?auto=format&fit=crop&w=1200&q=90','Nikmati kekayaan budaya, sejarah dan kuliner khas Yogyakarta.')">
+                        Lihat Detail →
+                    </span>
+                </div>
+            </article>
+
+            <article class="destination-card" data-category="pantai" data-name="lombok">
+                <div class="destination-image">
+                    <img src="https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=900&q=85" alt="Lombok">
+                    <span class="destination-tag">Pantai</span>
+                </div>
+                <div class="destination-info">
+                    <div class="location">
+                        <i class="fa-solid fa-location-dot"></i> Nusa Tenggara Barat
+                    </div>
+                    <h3>Lombok</h3>
+                    <p>Pantai eksotis dan pemandangan alam yang memanjakan mata.</p>
+                    <span class="detail-btn"
+                          onclick="openModal('Lombok','Nusa Tenggara Barat','https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=1200&q=90','Jelajahi pantai dan alam eksotis Lombok.')">
+                        Lihat Detail →
+                    </span>
+                </div>
+            </article>
+
+            <article class="destination-card" data-category="alam" data-name="kawah ijen">
+                <div class="destination-image">
+                    <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=85" alt="Kawah Ijen">
+                    <span class="destination-tag">Alam</span>
+                </div>
+                <div class="destination-info">
+                    <div class="location">
+                        <i class="fa-solid fa-location-dot"></i> Jawa Timur
+                    </div>
+                    <h3>Kawah Ijen</h3>
+                    <p>Kawasan vulkanik dengan panorama danau kawah yang unik.</p>
+                    <span class="detail-btn"
+                          onclick="openModal('Kawah Ijen','Jawa Timur','https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=90','Kunjungi kawasan Kawah Ijen dengan panorama alam vulkanik yang unik.')">
+                        Lihat Detail →
+                    </span>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     JAWA TENGAH
+========================= -->
+<section class="central-java" id="populer">
+    <div class="container">
+
+        <div class="section-header">
+            <div class="section-label" style="color:#8df0bd;">
+                Jawa Tengah
+            </div>
+
+            <h2>Jelajahi Pesona Jawa Tengah</h2>
+
+            <p>
+                Temukan berbagai destinasi menarik yang berada
+                di sekitar Jawa Tengah dan Tegal.
+            </p>
+        </div>
+
+        <div class="java-grid">
+
+            <div class="java-card large"
+                 style="background-image:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=85');">
+                <div class="java-overlay">
+                    <h3>Dieng</h3>
+                    <p>Dataran tinggi dengan panorama alam yang memukau.</p>
+                </div>
+            </div>
+
+            <div class="java-card"
+                 style="background-image:url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85');">
+                <div class="java-overlay">
+                    <h3>Baturaden</h3>
+                    <p>Wisata alam sejuk di kaki Gunung Slamet.</p>
+                </div>
+            </div>
+
+            <div class="java-card"
+                 style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85');">
+                <div class="java-overlay">
+                    <h3>Pantai Menganti</h3>
+                    <p>Pantai indah dengan tebing dan laut biru.</p>
+                </div>
+            </div>
+
+            <div class="java-card"
+                 style="background-image:url('https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=85');">
+                <div class="java-overlay">
+                    <h3>Wisata Alam</h3>
+                    <p>Temukan berbagai destinasi alami.</p>
+                </div>
+            </div>
+
+            <div class="java-card"
+                 style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85');">
+                <div class="java-overlay">
+                    <h3>Gunung Slamet</h3>
+                    <p>Petualangan alam untuk pecinta pegunungan.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================
+     PACKAGES
+========================= -->
+<section>
+    <div class="container">
+
+        <div class="section-header">
+            <div class="section-label">Paket Wisata</div>
+            <h2>Pilih Petualanganmu</h2>
+            <p>
+                Konsultasikan perjalanan yang sesuai dengan
+                kebutuhan dan tujuanmu.
+            </p>
+        </div>
+
+        <div class="packages">
+
+            <div class="package-card">
+                <div class="package-icon">
+                    <i class="fa-solid fa-tree"></i>
+                </div>
+                <h3>Paket Wisata Alam</h3>
+                <p>
+                    Cocok untuk kamu yang menyukai alam,
+                    petualangan dan suasana tenang.
+                </p>
+                <a target="_blank"
+                   class="btn btn-primary"
+                   href="https://wa.me/6285802882764?text=Halo,%20saya%20ingin%20bertanya%20tentang%20Paket%20Wisata%20Alam.">
+                    Tanya Paket
+                </a>
+            </div>
+
+            <div class="package-card">
+                <div class="package-icon">
+                    <i class="fa-solid fa-people-group"></i>
+                </div>
+                <h3>Paket Keluarga</h3>
+                <p>
+                    Perjalanan santai dan menyenangkan
+                    untuk keluarga.
+                </p>
+                <a target="_blank"
+                   class="btn btn-primary"
+                   href="https://wa.me/6285802882764?text=Halo,%20saya%20ingin%20bertanya%20tentang%20Paket%20Keluarga.">
+                    Tanya Paket
+                </a>
+            </div>
+
+            <div class="package-card">
+                <div class="package-icon">
+                    <i class="fa-solid fa-umbrella-beach"></i>
+                </div>
+                <h3>Paket Pantai</h3>
+                <p>
+                    Nikmati pantai, laut, sunset dan
+                    aktivitas bahari.
+                </p>
+                <a target="_blank"
+                   class="btn btn-primary"
+                   href="https://wa.me/6285802882764?text=Halo,%20saya%20ingin%20bertanya%20tentang%20Paket%20Wisata%20Pantai.">
+                    Tanya Paket
+                </a>
+            </div>
+
+            <div class="package-card">
+                <div class="package-icon">
+                    <i class="fa-solid fa-mountain-sun"></i>
+                </div>
+                <h3>Paket Gunung</h3>
+                <p>
+                    Camping, hiking, sunrise dan
+                    petualangan pegunungan.
+                </p>
+                <a target="_blank"
+                   class="btn btn-primary"
+                   href="https://wa.me/6285802882764?text=Halo,%20saya%20ingin%20bertanya%20tentang%20Paket%20Wisata%20Gunung.">
+                    Tanya Paket
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     WHY US
+========================= -->
+<section class="why-us">
+    <div class="container">
+
+        <div class="section-header">
+            <div class="section-label">Keunggulan</div>
+            <h2>Mengapa Memilih Kami?</h2>
+            <p>
+                Kami hadir untuk membantu menemukan pengalaman
+                wisata yang berkesan.
+            </p>
+        </div>
+
+        <div class="advantages">
+
+            <div class="advantage">
+                <div class="advantage-icon">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div>
+                    <h3>Destinasi Menarik</h3>
+                    <p>Berbagai pilihan tempat wisata Indonesia.</p>
+                </div>
+            </div>
+
+            <div class="advantage">
+                <div class="advantage-icon">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <div>
+                    <h3>Pilihan Beragam</h3>
+                    <p>Mulai dari alam hingga wisata budaya.</p>
+                </div>
+            </div>
+
+            <div class="advantage">
+                <div class="advantage-icon">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+                <div>
+                    <h3>Harga Terjangkau</h3>
+                    <p>Pilihan perjalanan yang dapat disesuaikan.</p>
+                </div>
+            </div>
+
+            <div class="advantage">
+                <div class="advantage-icon">
+                    <i class="fa-solid fa-handshake"></i>
+                </div>
+                <div>
+                    <h3>Pelayanan Ramah</h3>
+                    <p>Kami siap membantu kebutuhan perjalanan.</p>
+                </div>
+            </div>
+
+            <div class="advantage">
+                <div class="advantage-icon">
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+                <div>
+                    <h3>Pengalaman Berkesan</h3>
+                    <p>Jadikan perjalanan sebagai cerita indah.</p>
+                </div>
+            </div>
+
+            <div class="advantage">
+                <div class="advantage-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <h3>Terpercaya</h3>
+                    <p>Informasi wisata disajikan secara profesional.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     GALLERY
+========================= -->
+<section id="galeri">
+    <div class="container">
+
+        <div class="section-header">
+            <div class="section-label">Galeri</div>
+            <h2>Inspirasi Perjalanan</h2>
+            <p>
+                Nikmati gambaran keindahan berbagai destinasi Indonesia.
+            </p>
+        </div>
+
+        <div class="gallery">
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85" alt="Gunung">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85" alt="Pantai">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=85" alt="Alam">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=900&q=85" alt="Laut">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85" alt="Pemandangan">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=85" alt="Wisata Indonesia">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=85" alt="Pegunungan">
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+<section class="about" id="tentang">
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=90"
+                     alt="Jelajah Wisata Indonesia">
+
+                <div class="about-badge">
+                    <strong>Indonesia</strong>
+                    <span>Negeri Penuh Keindahan</span>
+                </div>
+            </div>
+
+            <div class="about-text">
+
+                <div class="section-label">Tentang Kami</div>
+
+                <h2>Menjelajahi Indonesia, Menciptakan Pengalaman.</h2>
+
+                <p>
+                    <strong>Jelajah Wisata Indonesia</strong> merupakan
+                    platform informasi dan layanan wisata yang membantu
+                    masyarakat menemukan berbagai destinasi menarik
+                    di Indonesia.
+                </p>
+
+                <p>
+                    Kami menghadirkan informasi mengenai wisata alam,
+                    pantai, gunung, air terjun, budaya, wisata keluarga,
+                    dan berbagai tempat menarik lainnya.
+                </p>
+
+                <div class="owner-info">
+                    <strong>Pemilik: Rayhan Satria</strong>
+                    <br>
+                    <span>
+                        Debong Wetan, Tegal, Jawa Tengah, Indonesia
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     TESTIMONIAL
+========================= -->
+<section>
+    <div class="container">
+
+        <div class="section-header">
+            <div class="section-label">Testimoni</div>
+            <h2>Apa Kata Mereka?</h2>
+            <p>
+                Contoh testimoni pelanggan mengenai pengalaman perjalanan.
+            </p>
+        </div>
+
+        <div class="testimonials">
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    "Informasi destinasinya sangat membantu.
+                    Jadi lebih mudah menentukan tempat yang ingin dikunjungi."
+                </p>
+                <div class="customer">
+                    Andi
+                    <small>Wisatawan</small>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    "Pilihan wisata alamnya menarik. Cocok untuk
+                    mencari inspirasi liburan bersama keluarga."
+                </p>
+                <div class="customer">
+                    Sinta
+                    <small>Wisatawan</small>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    "Website-nya mudah digunakan dan informasi
+                    destinasi sangat menarik."
+                </p>
+                <div class="customer">
+                    Dimas
+                    <small>Wisatawan</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+<section class="cta">
+    <div class="container">
+
+        <h2>Siap Memulai Petualanganmu?</h2>
+
+        <p>
+            Temukan destinasi wisata impianmu dan hubungi
+            kami untuk mendapatkan informasi perjalanan.
+        </p>
+
+        <a target="_blank"
+           href="https://wa.me/6285802882764?text=Halo%20Rayhan,%20saya%20ingin%20mendapatkan%20informasi%20tentang%20wisata."
+           class="btn btn-orange">
+            <i class="fa-brands fa-whatsapp"></i>
+            Chat WhatsApp Sekarang
+        </a>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+<section id="kontak">
+    <div class="container">
+
+        <div class="section-header">
+            <div class="section-label">Kontak</div>
+            <h2>Hubungi Kami</h2>
+            <p>
+                Punya pertanyaan atau ingin mengetahui informasi wisata?
+                Silakan hubungi kami.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-info">
+
+                <h3>Jelajah Wisata Indonesia</h3>
+
+                <p>
+                    Kami siap membantu memberikan informasi
+                    mengenai berbagai pilihan wisata.
+                </p>
+
+                <div class="contact-item">
+                    <i class="fa-solid fa-user"></i>
+                    <div>
+                        <small>Pemilik</small>
+                        Rayhan Satria
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <small>Alamat</small>
+                        Debong Wetan, Tegal,
+                        Jawa Tengah, Indonesia
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div>
+                        <small>WhatsApp</small>
+                        0858 0288 2764
+                    </div>
+                </div>
+
+                <a target="_blank"
+                   href="https://wa.me/6285802882764"
+                   class="btn btn-orange">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Chat Sekarang
+                </a>
+
+            </div>
+
+
+            <form class="contact-form" id="contactForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Nama</label>
+                        <input type="text"
+                               id="name"
+                               placeholder="Nama lengkap"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nomor WhatsApp</label>
+                        <input type="tel"
+                               id="phone"
+                               placeholder="08xxxxxxxxxx"
+                               required>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Pilih Destinasi</label>
+
+                    <select id="destination">
+                        <option value="Informasi Umum">
+                            Informasi Umum
+                        </option>
+                        <option value="Bromo">
+                            Gunung Bromo
+                        </option>
+                        <option value="Dieng">
+                            Dieng
+                        </option>
+                        <option value="Raja Ampat">
+                            Raja Ampat
+                        </option>
+                        <option value="Bali">
+                            Bali
+                        </option>
+                        <option value="Lombok">
+                            Lombok
+                        </option>
+                        <option value="Jawa Tengah">
+                            Wisata Jawa Tengah
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Pesan</label>
+
+                    <textarea id="message"
+                              placeholder="Tuliskan kebutuhan atau pertanyaanmu..."
+                              required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Kirim via WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <a href="#beranda" class="logo">
+                    <span class="logo-icon">
+                        <i class="fa-solid fa-mountain-sun"></i>
+                    </span>
+                    Jelajah Wisata Indonesia
+                </a>
+
+                <p>
+                    Menjelajahi keindahan Indonesia,
+                    menciptakan pengalaman perjalanan
+                    yang tak terlupakan.
+                </p>
+
+                <div class="socials">
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+
+                    <a target="_blank"
+                       href="https://wa.me/6285802882764"
+                       aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Menu</h4>
+
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#destinasi">Destinasi</a></li>
+                    <li><a href="#alam">Wisata Alam</a></li>
+                    <li><a href="#populer">Wisata Populer</a></li>
+                    <li><a href="#tentang">Tentang Kami</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Kontak</h4>
+
+                <p>
+                    <i class="fa-solid fa-user"></i>
+                    Rayhan Satria
+                </p>
+
+                <p style="margin-top:10px;">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Debong Wetan, Tegal,
+                    Jawa Tengah
+                </p>
+
+                <p style="margin-top:10px;">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    0858 0288 2764
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 Jelajah Wisata Indonesia.
+            All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     WHATSAPP FLOATING
+========================= -->
+<a class="whatsapp"
+   target="_blank"
+   href="https://wa.me/6285802882764?text=Halo%20Jelajah%20Wisata%20Indonesia,%20saya%20ingin%20bertanya%20tentang%20wisata."
+   aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+
+<!-- =========================
+     BACK TO TOP
+========================= -->
+<button class="back-top" id="backTop">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+<div class="modal" id="modal">
+
+    <button class="close-modal" onclick="closeModal()">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="modal-content">
+
+        <img id="modalImage"
+             class="modal-image"
+             src=""
+             alt="Destinasi">
+
+        <div class="modal-body">
+
+            <div class="section-label" id="modalLocation">
+                Lokasi
+            </div>
+
+            <h2 id="modalTitle">
+                Destinasi
+            </h2>
+
+            <p id="modalDescription">
+                Deskripsi destinasi.
+            </p>
+
+            <br>
+
+            <a target="_blank"
+               href="https://wa.me/6285802882764"
+               class="btn btn-primary">
+                <i class="fa-brands fa-whatsapp"></i>
+                Tanya Destinasi
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    /* =========================
+       NAVBAR SCROLL
+    ========================= */
+
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+
+        const backTop = document.getElementById("backTop");
+
+        if (window.scrollY > 500) {
+            backTop.classList.add("show");
+        } else {
+            backTop.classList.remove("show");
+        }
+
+    });
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", function () {
+
+        navMenu.classList.toggle("active");
+
+        const icon = menuToggle.querySelector("i");
+
+        if (navMenu.classList.contains("active")) {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
+        } else {
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+        }
+
+    });
+
+
+    document.querySelectorAll(".nav-menu a").forEach(function(link) {
+
+        link.addEventListener("click", function() {
+            navMenu.classList.remove("active");
+
+            const icon = menuToggle.querySelector("i");
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+        });
+
+    });
+
+
+    /* =========================
+       FILTER DESTINATION
+    ========================= */
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const destinationCards = document.querySelectorAll(".destination-card");
+
+    filterButtons.forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            filterButtons.forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+            this.classList.add("active");
+
+            const category = this.dataset.category;
+
+            destinationCards.forEach(function(card) {
+
+                if (
+                    category === "all" ||
+                    card.dataset.category === category
+                ) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+
+            });
+
+        });
+
+    });
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    const searchInput = document.getElementById("searchInput");
+
+    searchInput.addEventListener("input", function() {
+
+        const keyword = this.value.toLowerCase();
+
+        destinationCards.forEach(function(card) {
+
+            const name = card.dataset.name.toLowerCase();
+
+            if (name.includes(keyword)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+    });
+
+
+    function searchDestination() {
+
+        const keyword = searchInput.value.toLowerCase();
+
+        destinationCards.forEach(function(card) {
+
+            const name = card.dataset.name.toLowerCase();
+
+            if (name.includes(keyword)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+        document.getElementById("destinationGrid")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+    }
+
+
+    /* =========================
+       MODAL DESTINATION
+    ========================= */
+
+    const modal = document.getElementById("modal");
+
+    function openModal(title, location, image, description) {
+
+        document.getElementById("modalTitle").textContent = title;
+        document.getElementById("modalLocation").textContent = location;
+        document.getElementById("modalImage").src = image;
+        document.getElementById("modalDescription").textContent = description;
+
+        modal.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+    }
+
+
+    function closeModal() {
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow = "auto";
+    }
+
+
+    modal.addEventListener("click", function(e) {
+
+        if (e.target === modal) {
+            closeModal();
+        }
+
+    });
+
+
+    document.addEventListener("keydown", function(e) {
+
+        if (e.key === "Escape") {
+            closeModal();
+        }
+
+    });
+
+
+    /* =========================
+       CONTACT FORM → WHATSAPP
+    ========================= */
+
+    const contactForm = document.getElementById("contactForm");
+
+    contactForm.addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        const name =
+            document.getElementById("name").value;
+
+        const phone =
+            document.getElementById("phone").value;
+
+        const destination =
+            document.getElementById("destination").value;
+
+        const message =
+            document.getElementById("message").value;
+
+        const text =
+            `Halo Rayhan Satria,%0A%0A` +
+            `Nama: ${encodeURIComponent(name)}%0A` +
+            `Nomor WhatsApp: ${encodeURIComponent(phone)}%0A` +
+            `Destinasi: ${encodeURIComponent(destination)}%0A` +
+            `Pesan: ${encodeURIComponent(message)}%0A%0A` +
+            `Saya ingin mendapatkan informasi wisata.`;
+
+        const whatsappURL =
+            `https://wa.me/6285802882764?text=${text}`;
+
+        window.open(whatsappURL, "_blank");
+
+    });
+
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    document.getElementById("backTop")
+        .addEventListener("click", function() {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+    /* =========================
+       GALLERY LIGHTBOX
+    ========================= */
+
+    const galleryItems =
+        document.querySelectorAll(".gallery-item");
+
+    galleryItems.forEach(function(item) {
+
+        item.addEventListener("click", function() {
+
+            const image =
+                item.querySelector("img");
+
+            openModal(
+                image.alt,
+                "Galeri Jelajah Wisata Indonesia",
+                image.src,
+                "Inspirasi keindahan wisata Indonesia."
+            );
+
+        });
+
+    });
+</script>
+
+</body>
+</html>
+```
+
+**Cara menjalankan:**
+
+1. Buka Notepad atau VS Code.
+2. Copy seluruh kode di atas.
+3. Simpan dengan nama **`index.html`**.
+4. Klik dua kali file tersebut untuk membukanya di Chrome.
+
+Nomor WhatsApp sudah terhubung ke **0858 0288 2764**, dan form kontak juga otomatis membuat pesan WhatsApp kepada **Rayhan Satria**.
